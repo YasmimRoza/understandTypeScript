@@ -58,3 +58,9 @@ console.log(Cor.Verde) // 1001
 console.log(Cor.Cinza)
 console.log(Cor.Preto)
 console.log(Cor.Rosa)
+
+// any 
+let carro: any = 'BMW'
+console.log(carro)
+carro = { marca: 'BMW', ano: 2019}
+console.log(carro)
