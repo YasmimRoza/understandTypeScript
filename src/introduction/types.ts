@@ -64,3 +64,25 @@ let carro: any = 'BMW'
 console.log(carro)
 carro = { marca: 'BMW', ano: 2019}
 console.log(carro)
+
+// function
+const names = 'Yasmim'
+
+function returnName(): string{
+    return names
+}
+
+console.log(returnName())
+
+function speak(): void{
+    console.log('Oi')
+    // return returnName()
+}
+
+speak()
+
+function multiplicar(numA: number, numB: number): number{
+    return numA * numB
+}
+
+console.log(multiplicar(2, 2))
