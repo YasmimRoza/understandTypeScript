@@ -92,3 +92,56 @@ let calculo: (x: number, y: number) => number
 
 calculo = multiplicar
 console.log(calculo(6,5))
+
+// objeto 
+let usuario: {nome: string, idade: number} = {
+    nome: 'Maria',
+    idade: 23
+}
+
+console.log(usuario)
+
+//usuario = {
+//    name: 'Carla',
+//    age: 23
+//}
+
+usuario = {
+    idade: 23,
+    nome: 'Carla',
+}
+
+console.log(usuario)
+
+//Desafio
+const supervisores: any[] = ["Tadeu", "Ana"]
+
+function baterHora(hora:number){
+
+    const bater = hora;
+
+    if (bater <= 8) console.log('Dentro do horario')
+    if (bater > 8) console.log('F9ra do horario')
+
+    return bater
+}
+
+// baterHora(9)
+
+let funcionario: {
+    supervisores: string[],
+    baterPonto: (horas: number) => string
+} = {
+    supervisores: ["Tadeu", "Ana"],
+    baterPonto(horas: number): string {
+    if (horas <= 8) {
+        return 'Dentro do horario'
+    }else{
+         return 'Fora do horario'
+    }
+    }
+}
+
+console.log(funcionario.supervisores)
+console.log(funcionario.baterPonto(7))
+console.log(funcionario.baterPonto(10))
