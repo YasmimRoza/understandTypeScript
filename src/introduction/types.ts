@@ -145,3 +145,20 @@ let funcionario: {
 console.log(funcionario.supervisores)
 console.log(funcionario.baterPonto(7))
 console.log(funcionario.baterPonto(10))
+
+// Tipo criado
+type Funcionario = {
+    supervisores: string[],
+    baterPonto: (horas: number) => string
+}
+
+let funcionario1: Funcionario = {
+    supervisores: ["Tadeu", "Ana"],
+    baterPonto(horas: number): string {
+    if (horas <= 8) {
+        return 'Dentro do horario'
+    }else{
+         return 'Fora do horario'
+    }
+    }
+}
