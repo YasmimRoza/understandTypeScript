@@ -210,3 +210,32 @@ const contato1: Contato = {
 }
 
 console.log(contato1)
+
+// Desafio
+type Banco = {
+    saldo: number
+    depositar: (valor: number) => void
+    // depositar: number | any | Quase acerto!!!
+}
+
+type ContaCorrente = {
+    nome: string,
+    contaBancaria: Banco
+    contatos: string[]
+}
+
+let contaBancaria: Banco = {
+    saldo: 2345,
+    depositar(valor: number){
+        this.saldo += valor
+    }
+}
+
+let correntista: ContaCorrente = {
+    nome: 'Yasmim',
+    contaBancaria: contaBancaria,
+    contatos: ['98765454', '21564876']
+}
+
+correntista.contaBancaria.depositar(3000)
+console.log(correntista)
