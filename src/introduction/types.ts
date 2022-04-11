@@ -168,3 +168,23 @@ let nota: number | string = 10
 console.log(`Minha nota é ${nota}`)
 nota = '10'
 console.log(`Minha nota é ${nota}`)
+
+// nerver 
+function falha(msg: string): never{
+    throw new Error(msg)
+}
+
+const produto = {
+    nome: 'Sabão',
+    preco: -2,
+    validadarProduto(){
+        if(!this.nome || this.nome.trim().length == 0 ){
+            falha('Precisa ter nome')
+        }
+        if(this.preco <= 0){
+            falha('Preco inválido')
+        }
+    }
+}
+
+produto.validadarProduto()
