@@ -188,3 +188,25 @@ const produto = {
 }
 
 produto.validadarProduto()
+
+// null, como usa-lo
+
+let altura = 12
+// altura = null, não se pode fazer esse tipo de atribuição
+
+let alturaOpcional: null | number = 12
+alturaOpcional = null
+
+type Contato = {
+    nome: string,
+    tel1: string,
+    tel2: string | null
+}
+
+const contato1: Contato = {
+    nome: 'Fulano',
+    tel1: '5464646',
+    tel2: null
+}
+
+console.log(contato1)
