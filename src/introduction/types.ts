@@ -169,7 +169,7 @@ console.log(`Minha nota é ${nota}`)
 nota = '10'
 console.log(`Minha nota é ${nota}`)
 
-// nerver 
+ // nerver 
 function falha(msg: string): never{
     throw new Error(msg)
 }
