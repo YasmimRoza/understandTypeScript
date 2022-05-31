@@ -1,4 +1,4 @@
-import { Router } from 'express' 
+import { Router } from 'express'
 
 const router = Router()
 
@@ -7,9 +7,9 @@ let seraQuePega = '?'
 // console.log(seraQuePega)
 
 let estaFrio = true
-if(estaFrio){
- let acao = 'Colocar o casaco'
- console.log(acao)
+if (estaFrio) {
+    let acao = 'Colocar o casaco'
+    console.log(acao)
 }
 
 const cpf: string = '123.456.789-09'
@@ -18,29 +18,29 @@ console.log(cpf)
 
 var segredo = 'externo!'
 function revelar() {
- const segredo = 'interno'
- console.log(segredo)
+    const segredo = 'interno'
+    console.log(segredo)
 }
 revelar()
 console.log(segredo)
 
 {
- const def = 'def'
- console.log(def)
+    const def = 'def'
+    console.log(def)
 }
 
-for(let i = 0; i < 10 ; i++){
- console.log(i)
+for (let i = 0; i < 10; i++) {
+    console.log(i)
 }
 console.log()
 
 // ARROW FUNCTION
-function somar(n1: number, n2: number): number{
-return n1 + n2
+function somar(n1: number, n2: number): number {
+    return n1 + n2
 }
 console.log(somar(2, 2))
 
-const subtrair = (n1: number, n2: number): number => n1 -n2
+const subtrair = (n1: number, n2: number): number => n1 - n2
 console.log(subtrair(2, 3))
 
 const saudacao = () => console.log('Olá')
@@ -51,9 +51,9 @@ falarCom('Maria')
 
 // Parâmetro
 function contagemRegressiva(inicio: number = 3,
-    fim: number = 5): void{
+    fim: number = 5): void {
     console.log(inicio)
-    while(inicio > fim ){
+    while (inicio > fim) {
         inicio--
         console.log(inicio)
     }
@@ -63,7 +63,7 @@ function contagemRegressiva(inicio: number = 3,
 contagemRegressiva(10)
 
 // Rest e Spread
-const numbers = [ 1, 10, 87, 56, -2, 800, 1209]
+const numbers = [1, 10, 87, 56, -2, 800, 1209]
 console.log(Math.max(...numbers))
 
 const turmaA: string[] = ['João', 'Maria', 'Fernanda']
@@ -71,7 +71,7 @@ const turmaA: string[] = ['João', 'Maria', 'Fernanda']
 const turmaB: string[] = ['Fernando', ...turmaA, 'Miguel', 'Lorena']
 console.log(turmaB)
 
-function retornarArray(...args: number[]): number[]{
+function retornarArray(...args: number[]): number[] {
     return args
 }
 
@@ -81,14 +81,14 @@ console.log(numeros)
 console.log(retornarArray(...numbers))
 
 // Rest e Spread (Tupla)
-const tupla: [number, string, boolean] = [ 1, 'abc', false]
+const tupla: [number, string, boolean] = [1, 'abc', false]
 
 function tuplaParam1(a: number, b: string, c: boolean): void {
     console.log(`1°: ${a} ${b} ${c}`)
 }
 tuplaParam1(...tupla)
 
-function tuplaParam2(...params: [number, string, boolean]): void{
+function tuplaParam2(...params: [number, string, boolean]): void {
     console.log(Array.isArray(params))
     console.log(`2°: ${params[0]} ${params[1]} ${params[2]}`)
 }
