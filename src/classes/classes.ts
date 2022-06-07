@@ -50,20 +50,65 @@ class Produto {
     constructor(public nome: string, public preco: number, public desconto: number = 0) {
     }
 
+    // Criar método precoComDesconto
+    // Quais são os parametros e o retorno ?
+    // Alterar método 'resumo' para mostrar o preço com descontro
+
+    precoComDesconto(): number {
+        return this.desconto !== 0 ? this.preco - ((this.preco * this.desconto) / 100) : this.preco
+    }
+
     public resumo(): string {
-        return `${this.nome} custa R$${this.preco} (${this.desconto})`
+        return `${this.nome} custa R$${this.precoComDesconto()}, ${this.desconto}% desconto.`
     }
 }
 
 const testeProduto = new Produto('Teste', 1200)
 const testeProduto2 = new Produto('Teste2', 1400, 40)
 
-testeProduto2.preco -= testeProduto2.preco / testeProduto2.desconto
-
-console.log(testeProduto)
 console.log(testeProduto.resumo())
-console.log(testeProduto2)
+
 console.log(testeProduto2.resumo())
+
+class Carro {
+    private velocidadeAtual: number = 0
+
+    constructor(public marca: string, public modelo: number, private velocidadeMaxima = 200) {
+    }
+
+    private alterarVelocidade(delta: number): number {
+        const novaVelocidade = this.velocidadeAtual + delta
+        const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima
+
+        if (velocidadeValida) {
+            this.velocidadeAtual = novaVelocidade
+        } else {
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0
+        }
+
+        return this.velocidadeAtual
+    }
+
+    public acelerar(): number {
+        return this.alterarVelocidade(5)
+    }
+
+    public frear(): number {
+        return this.alterarVelocidade(-5)
+    }
+}
+
+const carro1 = new Carro('Ford', 185)
+const carro2 = new Carro('Tesla', 1000)
+
+// console.log(carro2.acelerar())
+// console.log(carro2.frear())
+
+Array(50).fill(0).forEach(() => carro1.acelerar())
+console.log(carro1.acelerar())
+
+Array(20).fill(0).forEach(() => carro1.frear())
+console.log(carro1.frear())
 
 
 export { router3 }
