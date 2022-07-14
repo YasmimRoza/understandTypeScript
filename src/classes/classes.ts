@@ -17,12 +17,12 @@ class Data {
 
 const aniversario = new Data(3, 11, 1998)
 aniversario.dia = 4
-console.log(aniversario.dia)
-console.log(aniversario)
+// console.log(aniversario.dia)
+// console.log(aniversario)
 
 const casamento = new Data
 casamento.ano = 2017
-console.log(casamento)
+// console.log(casamento)
 
 // ----------------------------------------------------------------------------
 class DataEsperta {
@@ -32,12 +32,12 @@ class DataEsperta {
 
 const aniversarioEsperto = new DataEsperta(3, 11, 1998)
 aniversarioEsperto.dia = 4
-console.log(aniversarioEsperto.dia)
-console.log(aniversarioEsperto)
+// console.log(aniversarioEsperto.dia)
+// console.log(aniversarioEsperto)
 
 const casamentoEsperto = new Data
 casamentoEsperto.ano = 2017
-console.log(casamentoEsperto)
+// console.log(casamentoEsperto)
 
 // ------- Desafio --------
 // Classe Produto
@@ -66,9 +66,9 @@ class Produto {
 const testeProduto = new Produto('Teste', 1200)
 const testeProduto2 = new Produto('Teste2', 1400, 40)
 
-console.log(testeProduto.resumo())
+// console.log(testeProduto.resumo())
 
-console.log(testeProduto2.resumo())
+// console.log(testeProduto2.resumo())
 
 class Carro {
     private velocidadeAtual: number = 0
@@ -104,11 +104,19 @@ const carro2 = new Carro('Tesla', 1000)
 // console.log(carro2.acelerar())
 // console.log(carro2.frear())
 
-Array(50).fill(0).forEach(() => carro1.acelerar())
-console.log(carro1.acelerar())
+// Array(50).fill(0).forEach(() => carro1.acelerar())
+// console.log(carro1.acelerar())
 
-Array(20).fill(0).forEach(() => carro1.frear())
-console.log(carro1.frear())
+// Array(20).fill(0).forEach(() => carro1.frear())
+// console.log(carro1.frear())
 
+class Ferrari extends Carro {
+
+}
+
+const f40 = new Ferrari('Ferrari', 324)
+console.log(`${f40.marca} ${f40.modelo}`)
+console.log(f40.acelerar())
+console.log(f40.frear())
 
 export { router3 }
