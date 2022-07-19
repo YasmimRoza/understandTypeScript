@@ -73,10 +73,10 @@ const testeProduto2 = new Produto('Teste2', 1400, 40)
 class Carro {
     private velocidadeAtual: number = 0
 
-    constructor(public marca: string, public modelo: number, private velocidadeMaxima = 200) {
+    constructor(public marca: string, public modelo: string, private velocidadeMaxima = 200) {
     }
 
-    private alterarVelocidade(delta: number): number {
+    protected alterarVelocidade(delta: number): number {
         const novaVelocidade = this.velocidadeAtual + delta
         const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima
 
@@ -98,20 +98,29 @@ class Carro {
     }
 }
 
-const carro1 = new Carro('Ford', 185)
-const carro2 = new Carro('Tesla', 1000)
+const carro1 = new Carro('Ford', '1', 185)
+const carro2 = new Carro('Tesla', '2', 1000)
 
-// console.log(carro2.acelerar())
-// console.log(carro2.frear())
+console.log(carro2.acelerar())
+console.log(carro2.frear())
 
-// Array(50).fill(0).forEach(() => carro1.acelerar())
-// console.log(carro1.acelerar())
+Array(50).fill(0).forEach(() => carro1.acelerar())
+console.log(carro1.acelerar())
 
-// Array(20).fill(0).forEach(() => carro1.frear())
-// console.log(carro1.frear())
+Array(20).fill(0).forEach(() => carro1.frear())
+console.log(carro1.frear())
 
 class Ferrari extends Carro {
+    constructor(modelo: string, velocidadeMaxima: number) {
+        super('Ferrari', modelo, velocidadeMaxima)
+    }
+    public acelerar(): number {
+        return this.alterarVelocidade(20)
+    }
 
+    public frear(): number {
+        return this.alterarVelocidade(-15)
+    }
 }
 
 const f40 = new Ferrari('Ferrari', 324)
