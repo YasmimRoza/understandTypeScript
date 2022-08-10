@@ -128,4 +128,174 @@ console.log(`${f40.marca} ${f40.modelo}`)
 console.log(f40.acelerar())
 console.log(f40.frear())
 
+// Getters & Setters 
+class Pessoa {
+    private _idade: number = 0
+
+    get idade(): number {
+        return this._idade
+    }
+
+    set idade(valor: number) {
+        if (valor >= 0 && valor <= 120) {
+            this._idade = valor
+        }
+    }
+}
+
+const pessoa1 = new Pessoa
+pessoa1.idade = 10
+console.log(pessoa1.idade)
+
+pessoa1.idade = -3
+console.log(pessoa1.idade)
+
+class Matematica {
+    static PI: number = 3.1416
+
+    static areaCirc(raio: number): number {
+        return this.PI * raio * raio
+    }
+}
+
+// const m1 = new Matematica()
+// m1.PI = 4.2
+// console.log(m1.areaCirc(4))
+
+console.log(Matematica.areaCirc(4))
+
+// Classe abstrata
+abstract class Calculo {
+    protected resultado: number = 0
+
+    abstract executar(...numeros: number[]): void
+
+    getResultado(): number {
+        return this.resultado
+    }
+}
+
+class Soma extends Calculo {
+    executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t + a)
+    }
+}
+
+class Multiplicacao extends Calculo {
+    executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t * a)
+    }
+}
+
+let c1 = new Soma()
+c1.executar(1, 2, 3, 4, 5)
+console.log(c1.getResultado())
+
+let c2 = new Multiplicacao()
+c2.executar(10, 10)
+console.log(c2.getResultado())
+
+// Constructor privado & Singleton
+class Unico {
+    private static instance: Unico = new Unico
+    private constructor() { }
+
+    static getInstance(): Unico {
+        return Unico.instance
+    }
+
+    agora() {
+        return new Date
+    }
+}
+
+console.log(Unico.getInstance().agora())
+
+// Somente leitura
+class Aviao {
+    public readonly modelo: string
+
+    constructor(modelo: string,
+        public readonly prefixo: string) {
+        this.modelo = modelo
+    }
+}
+
+const turboHelice = new Aviao('Tu-987', 'PT-ABC')
+
+console.log(turboHelice)
+
+// Desafio
+// Exercício 1 - Classe
+class Moto {
+    public nome: string
+    public velocidade: number = 0
+
+    constructor(nome: string, velocidade: number) {
+        this.nome = nome
+        this.velocidade = velocidade
+    }
+
+    buzinar = () => {
+        console.log('Toooooooooot!')
+    }
+
+    acelerar = (delta: number) => {
+        this.velocidade = this.velocidade + delta
+    }
+}
+
+const moto = new Moto('Ducati', 29)
+moto.buzinar()
+console.log(moto.velocidade)
+moto.acelerar(30)
+console.log(moto.velocidade)
+
+// Exercício 2 - Herança
+// const objeto2D = {
+//     base: 0,
+//     altura: 0
+// }
+
+abstract class Objeto2D {
+    constructor(public base: number, public altura: number) {
+    }
+
+    abstract area(): number
+}
+
+class Retangulo extends Objeto2D {
+    area(): number {
+        return this.base * this.altura
+    }
+}
+
+const retangulo = new Retangulo(5, 7)
+
+console.log('Retangulo e sua area: ', retangulo.area())
+
+// Exercício 3 - Getters & Setters
+class Estagiario {
+    private _primeiroNome: string = ''
+
+    get primeiroNome() {
+        return this._primeiroNome
+    }
+
+    set primeiroNome(valor) {
+        if (valor.length >= 3) {
+            this._primeiroNome = valor
+        } else {
+            this._primeiroNome = ''
+        }
+    }
+}
+
+const estagiario = new Estagiario
+console.log(estagiario.primeiroNome)
+estagiario.primeiroNome = 'Le'
+console.log(estagiario.primeiroNome)
+estagiario.primeiroNome = 'Leonardo'
+console.log(estagiario.primeiroNome)
+
 export { router3 }
